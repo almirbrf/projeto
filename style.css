@@ -8,26 +8,21 @@
 :root {
   --text-color: white;
   --bg-url: url(./assets/fundoEscuro.jpg);
-  --stroke-color: rgba(255,255,255,0.5);
-  --surface-color: rgba(255,255,255,0.5);
-  --surface-color-hover: rgba(0,0,0,0.2);
-  --highlight-color: rgba(255,255,255,0.2);
+  --stroke-color: rgba(255, 255, 255, 0.5);
+  --surface-color: rgba(255, 255, 255, 0.5);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/sun.svg);
-
-
 }
 .light {
   --text-color: black;
   --bg-url: url(./assets/fundoClaro.jpg);
-  --stroke-color: rgba(0,0,0,0.5);
-  --surface-color: rgba(0,0,0,0.05);
-  --surface-color-hover: rgba(0,0,0,0.2);
-  --highlight-color: rgba(0,0,0,0.1);
+  --stroke-color: rgba(0, 0, 0, 0.5);
+  --surface-color: rgba(0, 0, 0, 0.05);
+  --surface-color-hover: rgba(0, 0, 0, 0.2);
+  --highlight-color: rgba(0, 0, 0, 0.1);
   --switch-bg-url: url(./assets/moon-stars.svg);
-
 }
-
-
 
 body {
   /*
@@ -37,49 +32,48 @@ body {
   background-size: cover;
   */
   background: var(--bg-url) top center/cover;
-  }
+  height: 100vh;
+}
 body * {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
 
-
 #container {
-    width: 360px;
-    
-    margin: 56px auto 0px;
-    padding: 0px 24px;
-  }
+  width: 360px;
+
+  margin: 56px auto 0px;
+  padding: 0px 24px;
+}
 #profile {
-    text-align: center;
-    padding: 24px;
-  }
+  text-align: center;
+  padding: 24px;
+}
 #profile img {
   width: 112px;
   margin: auto;
 }
 
 #profile p {
- font-weight: 500;
- line-height: 24px;
- margin-top: 8px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
 }
 /* links */
 ul {
   list-style: none;
   display: flex;
-  flex-direction: column;     
+  flex-direction: column;
   gap: 16px;
-  
+
   padding: 24px 0px;
 }
 
-ul li a{
-  
+ul li a {
   align-items: center;
   justify-content: center;
   display: flex;
-  
+
   padding: 16px;
 
   background: var(--surface-color);
@@ -87,11 +81,9 @@ ul li a{
   border-radius: 4px;
   backdrop-filter: 4px;
 
-  
   font-weight: 500;
 
-  transition: background 0.2s ;
-
+  transition: background 0.2s;
 }
 
 /*pseudo selector*/
@@ -106,7 +98,6 @@ ul li a:hover {
   justify-content: center;
   padding: 24px 0;
   font-size: 24px;
-
 }
 #social-links a {
   display: flex;
@@ -118,57 +109,83 @@ ul li a:hover {
   transition: background 0.2s;
 }
 
-
 #social-links a:hover {
-
- background: var(--highlight-color);
-
+  background: var(--highlight-color);
 }
-
 
 /* swicth */
 #switch {
-  
   position: relative;
   width: 64px;
   margin: 4px auto;
 }
 #switch button {
-  width: 32px; 
-  height: 32px;  
+  width: 32px;
+  height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
   border-radius: 50%;
-  border: 0;  
+  border: 0;
   top: 50%;
   position: absolute;
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+  animation: slide-back 0.2s;
 }
-
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: slide-in 0.2s forwards;
 }
 
-
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
+}
 
 #switch span {
   display: block;
-  width: 64px; 
-  height: 24px;  
+  width: 64px;
+  height: 24px;
   background: var(--surface-color);
-  border: 1px solid;  
+  border: 1px solid;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 9999px;
-
 }
 
 footer {
   padding: 24px 0;
   text-align: center;
-  
-  
+}
+
+/*
+@media (min-width: 700px) {
+  :root {
+      --bg-url: url()
+
+  }
+
+}/*
+
+
+
+
+
+
+/* animation */
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
